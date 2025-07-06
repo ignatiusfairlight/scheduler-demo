@@ -1,6 +1,7 @@
-<script>
+<script lang="ts">
 	import * as Tooltip from "$lib/components/ui/tooltip/index.js";
-	import { cn } from "$lib/utils.js";
+	import { cn, type WithElementRef } from "$lib/utils.js";
+	import type { HTMLAttributes } from "svelte/elements";
 	import {
 		SIDEBAR_COOKIE_MAX_AGE,
 		SIDEBAR_COOKIE_NAME,
@@ -17,11 +18,14 @@
 		style,
 		children,
 		...restProps
+	}: WithElementRef<HTMLAttributes<HTMLDivElement>> & {
+		open?: boolean;
+		onOpenChange?: (open: boolean) => void;
 	} = $props();
 
 	const sidebar = setSidebar({
 		open: () => open,
-		setOpen: (value) => {
+		setOpen: (value: boolean) => {
 			open = value;
 			onOpenChange(value);
 

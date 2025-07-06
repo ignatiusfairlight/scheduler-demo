@@ -1,6 +1,7 @@
-<script>
+<script lang="ts">
 	import * as Sheet from "$lib/components/ui/sheet/index.js";
-	import { cn } from "$lib/utils.js";
+	import { cn, type WithElementRef } from "$lib/utils.js";
+	import type { HTMLAttributes } from "svelte/elements";
 	import { SIDEBAR_WIDTH_MOBILE } from "./constants.js";
 	import { useSidebar } from "./context.svelte.js";
 
@@ -12,6 +13,10 @@
 		class: className,
 		children,
 		...restProps
+	}: WithElementRef<HTMLAttributes<HTMLDivElement>> & {
+		side?: "left" | "right";
+		variant?: "sidebar" | "floating" | "inset";
+		collapsible?: "offcanvas" | "icon" | "none";
 	} = $props();
 
 	const sidebar = useSidebar();
@@ -68,7 +73,7 @@
 				"group-data-[collapsible=offcanvas]:w-0",
 				"group-data-[side=right]:rotate-180",
 				variant === "floating" || variant === "inset"
-					? "group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4)))]"
+					? "group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4))+2px)]"
 					: "group-data-[collapsible=icon]:w-(--sidebar-width-icon)"
 			)}
 		></div>

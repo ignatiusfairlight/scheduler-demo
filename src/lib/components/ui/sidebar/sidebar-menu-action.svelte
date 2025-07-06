@@ -1,5 +1,8 @@
-<script>
-	import { cn } from "$lib/utils.js";
+<script lang="ts">
+	import { cn, type WithElementRef } from "$lib/utils.js";
+	import type { Snippet } from "svelte";
+	import type { HTMLButtonAttributes } from "svelte/elements";
+
 	let {
 		ref = $bindable(null),
 		class: className,
@@ -7,6 +10,9 @@
 		children,
 		child,
 		...restProps
+	}: WithElementRef<HTMLButtonAttributes> & {
+		child?: Snippet<[{ props: Record<string, unknown> }]>;
+		showOnHover?: boolean;
 	} = $props();
 
 	const mergedProps = $derived({

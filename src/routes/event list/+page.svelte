@@ -1,2 +1,0 @@
-<h1>Here is where the Event List is</h1>
-<!-- TODOs:// Add Dynamic Table Here -->
