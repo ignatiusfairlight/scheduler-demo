@@ -6,12 +6,10 @@
   let { children } = $props();
 </script>
 
-<Sidebar.Provider
-  style="--sidebar-width: 20rem; --sidebar-width-mobile: 20rem;"
->
+<Sidebar.Provider>
   <AppSidebar />
   <main>
     <Sidebar.Trigger />
-    {@render children()}
+    {@render children?.()}
   </main>
 </Sidebar.Provider>

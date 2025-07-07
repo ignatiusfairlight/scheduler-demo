@@ -12,6 +12,9 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
 	},
 	"devDependencies": {
+		"@event-calendar/core": "^4.5.0",
+		"@event-calendar/day-grid": "^3.12.0",
+		"@event-calendar/time-grid": "^3.12.0",
 		"@internationalized/date": "^3.8.2",
 		"@lucide/svelte": "^0.515.0",
 		"@sveltejs/adapter-auto": "^6.0.0",
@@ -20,6 +23,8 @@
 		"@tailwindcss/forms": "^0.5.9",
 		"@tailwindcss/typography": "^0.5.15",
 		"@tailwindcss/vite": "^4.0.0",
+		"@tanstack/table-core": "^8.21.3",
+		"@types/event-calendar__core": "^4.4.0",
 		"bits-ui": "^2.8.10",
 		"clsx": "^2.1.1",
 		"svelte": "^5.0.0",
