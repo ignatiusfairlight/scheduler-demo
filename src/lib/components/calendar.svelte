@@ -3,7 +3,7 @@
 
   let plugins = [DayGrid, TimeGrid];
   let options = $state({
-    height: "100%",
+    height: "75dvh",
     headerToolbar: {
       start: "today",
       center: "title",
