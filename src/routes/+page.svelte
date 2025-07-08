@@ -5,11 +5,14 @@
 
 <h2 class="mt-5 ml-10 text-4xl font-semibold mb-4">Home</h2>
 
-<div class="flex gap-10 p-10">
-  <div class="flex-2">
-    <Calendar />
+<div class="flex flex-col xl:flex-row gap-10 p-10">
+  <div class="w-full md:flex-2">
+    <div class="w-full">
+      <Calendar />
+    </div>
   </div>
 
+  <!--This table should only show 10 upcoming events-->
   <div class="flex-1 overflow-x-auto">
     <Table.Root>
       <Table.Caption>Upcoming Events</Table.Caption>

@@ -1,4 +1,6 @@
 import type { ColumnDef } from "@tanstack/table-core";
+import { renderComponent } from "$lib/components/ui/data-table";
+import DataTableActions from "./data-table-actions.svelte";
 
 export type Event = {
     id: string;
@@ -34,5 +36,11 @@ export const columns: ColumnDef<Event>[] = [
     {
         accessorKey: "location",
         header: "Location",
+    },
+    {
+        id: "actions",
+        cell: ({ row }) => {
+            return renderComponent(DataTableActions, { id: row.original.id });
+        }
     },
 ];
