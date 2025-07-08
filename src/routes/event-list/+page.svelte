@@ -1,7 +1,7 @@
 <script lang="ts">
   import DataTable from "./data-table.svelte";
   import { columns } from "./column.js";
-  import CreateNewEvent from "$lib/components/new-event-dialog.svelte";
+  import CreateNewEvent from "$lib/components/create-event-dialog.svelte";
 
   let { data } = $props();
 </script>
