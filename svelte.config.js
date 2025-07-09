@@ -13,9 +13,7 @@ const config = {
 			// Empty for dev, set by GitHub Actions for production
 			base: process.env.NODE_ENV === 'development' ? '' : process.env.BASE_PATH
 		},
-		// Optional: prevents trailing slashes like /about/ → /about
-		trailingSlash: 'never'
-	}
+	},
 };
 
 export default config;
