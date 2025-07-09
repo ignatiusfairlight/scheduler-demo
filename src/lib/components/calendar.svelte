@@ -1,7 +1,7 @@
 <script>
-  import { Calendar, DayGrid, TimeGrid } from "@event-calendar/core";
+  import { Calendar, DayGrid, TimeGrid, Interaction } from "@event-calendar/core";
 
-  let plugins = [DayGrid, TimeGrid];
+  let plugins = [DayGrid, TimeGrid, Interaction];
   let options = $state({
     height: "75dvh",
     headerToolbar: {
@@ -10,6 +10,8 @@
       end: "dayGridMonth,timeGridWeek,timeGridDay prev,next",
     },
     view: "dayGridMonth",
+    eventStartEditable: true,
+    eventDurationEditable: false,
 
     //Change this to interact with data (use eventSource)
     events: [
