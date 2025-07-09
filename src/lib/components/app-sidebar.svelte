@@ -8,7 +8,7 @@
   const items = [
     {
       title: "Home",
-      url: "/scheduler-demo",
+      url: "./",
       icon: HouseIcon,
     },
     {
