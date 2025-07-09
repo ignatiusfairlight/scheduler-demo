@@ -1,16 +1,15 @@
 {
-    "extends": "vite/tsconfig",
     "compilerOptions": {
       "types": ["svelte"],
-      "module": "ESNext",
       "target": "ESNext",
+      "module": "ESNext",
       "moduleResolution": "bundler",
-      "isolatedModules": true,
       "esModuleInterop": true,
+      "strict": true,
       "skipLibCheck": true,
-      "forceConsistentCasingInFileNames": true,
-      "strict": true
+      "forceConsistentCasingInFileNames": true
     },
     "include": ["src"]
   }
+  
   
