@@ -1,19 +1,18 @@
-import adapter from '@sveltejs/adapter-auto';
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import adapter from '@sveltejs/adapter-static';
+import { vitePreprocess } from '@sveltejs/kit/vite';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	preprocess: vitePreprocess(),
 	kit: {
 		adapter: adapter({
-			// GitHub Pages needs this for client-side routing to work
 			fallback: '404.html'
 		}),
 		paths: {
-			// Empty for dev, set by GitHub Actions for production
 			base: process.env.NODE_ENV === 'development' ? '' : process.env.BASE_PATH
-		},
-	},
+		}
+	}
 };
 
 export default config;
+
