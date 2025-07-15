@@ -1,6 +1,7 @@
 <script lang="ts" generics="TData, TValue">
   import { Button } from "$lib/components/ui/button/index.js";
   import { Input } from "$lib/components/ui/input/index.js";
+  import CreateNewEvent from "$lib/components/create-event-dialog.svelte";
 
   import {
     type ColumnDef,
@@ -73,7 +74,7 @@
   });
 </script>
 
-<div class="flex items-center py-4">
+<div class="flex items-center justify-between py-4">
   <Input
     placeholder="Filter events..."
     value={(table.getColumn("title")?.getFilterValue() as string) ?? ""}
@@ -85,6 +86,7 @@
     }}
     class="max-w-sm"
   />
+    <CreateNewEvent />
 </div>
 <div class="rounded-md border">
   <Table.Root>
