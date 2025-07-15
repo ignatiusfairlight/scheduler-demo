@@ -14,8 +14,16 @@
     showEditDialog = true;
   }
 
+  function closeEditDialog() {
+    showEditDialog = false;
+  }
+
   function openDeleteDialog() {
     showDeleteDialog = true;
+  }
+
+  function closeDeleteDialog() {
+    showDeleteDialog = false;
   }
 </script>
 
@@ -115,7 +123,7 @@
     </div>
     <Dialog.Footer class="mt-4 flex justify-end gap-2">
       <Button>Save</Button>
-      <Button variant="destructive">Cancel</Button>
+      <Button variant="destructive" onclick={closeEditDialog}>Cancel</Button>
     </Dialog.Footer>
   </Dialog.Content>
 </Dialog.Root>
@@ -134,7 +142,7 @@
     </Dialog.Description>
     <Dialog.Footer class="mt-4 flex justify-end gap-2">
       <Button variant="destructive">Delete</Button>
-      <Button>Cancel</Button>
+      <Button onclick={closeDeleteDialog}>Cancel</Button>
     </Dialog.Footer>
   </Dialog.Content>
 </Dialog.Root>
