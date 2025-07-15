@@ -1,13 +1,16 @@
 <script lang="ts" generics="TData, TValue">
   import { Button } from "$lib/components/ui/button/index.js";
+  import { Input } from "$lib/components/ui/input/index.js";
 
   import {
     type ColumnDef,
     type PaginationState,
     type SortingState,
+    type ColumnFiltersState,
     getCoreRowModel,
     getPaginationRowModel,
     getSortedRowModel,
+    getFilteredRowModel,
   } from "@tanstack/table-core";
 
   import {
@@ -24,6 +27,7 @@
   let { data, columns }: DataTableProps<TData, TValue> = $props();
   let pagination = $state<PaginationState>({ pageIndex: 0, pageSize: 10 });
   let sorting = $state<SortingState>([]);
+  let columnFilters = $state<ColumnFiltersState>([]);
 
   const table = createSvelteTable({
     get data() {
@@ -33,6 +37,7 @@
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
     onSortingChange: (updater) => {
       if (typeof updater === "function") {
         sorting = updater(sorting);
@@ -47,6 +52,13 @@
         pagination = updater;
       }
     },
+    onColumnFiltersChange: (updater) => {
+      if (typeof updater === "function") {
+        columnFilters = updater(columnFilters)
+      } else {
+        columnFilters = updater;
+      }
+    },
     state: {
       get pagination() {
         return pagination;
@@ -54,10 +66,26 @@
       get sorting() {
         return sorting;
       },
+      get columnFilters() {
+        return columnFilters;
+      },
     },
   });
 </script>
 
+<div class="flex items-center py-4">
+  <Input
+    placeholder="Filter events..."
+    value={(table.getColumn("title")?.getFilterValue() as string) ?? ""}
+    onchange={(e) => {
+      table.getColumn("title")?.setFilterValue(e.currentTarget.value);
+    }}
+    oninput={(e) => {
+      table.getColumn("title")?.setFilterValue(e.currentTarget.value);
+    }}
+    class="max-w-sm"
+  />
+</div>
 <div class="rounded-md border">
   <Table.Root>
     <Table.Header>
