@@ -20,7 +20,7 @@ The project is actively under development. Core features have been implemented, 
 
 🔐 User authentication & session management
 
-🛠 Tech Stack
+# 🛠 Tech Stack
 SvelteKit – Front-end framework
 
 Tailwind CSS – Utility-first styling
