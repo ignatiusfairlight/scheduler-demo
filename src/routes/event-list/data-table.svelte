@@ -75,18 +75,18 @@
 </script>
 
 <div class="flex items-center justify-between py-4">
+  <CreateNewEvent />
   <Input
     placeholder="Filter events..."
-    value={(table.getColumn("title")?.getFilterValue() as string) ?? ""}
+    value={(table.getColumn("location")?.getFilterValue() as string) ?? ""}
     onchange={(e) => {
-      table.getColumn("title")?.setFilterValue(e.currentTarget.value);
+      table.getColumn("location")?.setFilterValue(e.currentTarget.value);
     }}
     oninput={(e) => {
-      table.getColumn("title")?.setFilterValue(e.currentTarget.value);
+      table.getColumn("location")?.setFilterValue(e.currentTarget.value);
     }}
     class="max-w-sm"
   />
-    <CreateNewEvent />
 </div>
 <div class="rounded-md border">
   <Table.Root>
